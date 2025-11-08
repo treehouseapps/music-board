@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <title>Advanced Soundboard</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-gray-900 min-h-screen p-6">
+    <h1 class="text-4xl md:text-2xl font-bold mt-2 mb-10 text-left text-white">🎧 Advanced Sound Board</h1>
+
+    <div class="min-h-screen flex justify-center">
+        <div id="soundGrid" class="grid grid-cols-2 sm:grid-cols-3 h-44 lg:grid-cols-4 gap-6 w-full max-w-6xl">
+        </div>
+    </div>
+    aaaaaaaaaaaaaaa<img
+        src="http://127.0.0.1:3000/music-board/index.html?serverWindowId=e2bab7a1-18b8-4cb2-a95c-d7a6ee4799a1" alt="">
+
+    <script>
+        const sounds = [
+            {
+                name: "Fire Crackle",
+                sound: "src/fire.mp3",
+                bg: "https://images.pexels.com/photos/1769344/pexels-photo-1769344.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            },
+            {
+                name: "Gentle Rain",
+                sound: "src/rain.mp3",
+                bg: "https://images.pexels.com/photos/3382747/pexels-photo-3382747.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            },
+            {
+                name: "Chirping Birds",
+                sound: "src/chirping-birds.mp3",
+                bg: "https://images.pexels.com/photos/1010321/pexels-photo-1010321.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            },
+            {
+                name: "Clock Ticking",
+                sound: "src/clock-ticking.mp3",
+                bg: "https://images.pexels.com/photos/1344690/pexels-photo-1344690.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            },
+            {
+                name: "Night Crickets",
+                sound: "src/crickets.mp3",
+                bg: "https://images.pexels.com/photos/706596/pexels-photo-706596.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            },
+            {
+                name: "Footsteps",
+                sound: "src/footsteps.mp3",
+                bg: "https://images.pexels.com/photos/1231652/pexels-photo-1231652.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            },
+            {
+                name: "Forest Ambience",
+                sound: "src/forest-ambience.mp3",
+                bg: "https://images.pexels.com/photos/109404/pexels-photo-109404.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            },
+            {
+                name: "Inside Car",
+                sound: "src/inside-car.mp3",
+                bg: "https://images.pexels.com/photos/2030206/pexels-photo-2030206.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            },
+            {
+                name: "Ocean Waves",
+                sound: "src/ocean.mp3",
+                bg: "https://images.pexels.com/photos/1000653/pexels-photo-1000653.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            },
+            {
+                name: "River Flow",
+                sound: "src/river-flow.mp3",
+                bg: "https://images.pexels.com/photos/1077793/pexels-photo-1077793.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            },
+            {
+                name: "Gun Shots",
+                sound: "src/gun-shots.mp3",
+                bg: "https://images.pexels.com/photos/14818788/pexels-photo-14818788.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            },
+            {
+                name: "Loud Thunder",
+                sound: "src/thunder.mp3",
+                bg: "https://images.pexels.com/photos/236528/pexels-photo-236528.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            },
+            {
+                name: "Typing Keyboard",
+                sound: "src/typing.mp3",
+                bg: "https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            },
+            {
+                name: "Car Engine Idle",
+                sound: "src/car-engine.mp3",
+                bg: "https://images.pexels.com/photos/712615/pexels-photo-712615.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            },
+            {
+                name: "Waterfall Plunge",
+                sound: "src/waterfall.mp3",
+                bg: "https://images.pexels.com/photos/163820/pexels-photo-163820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            },
+            {
+                name: "Wind Blowing",
+                sound: "src/wind-blowing.mp3",
+                bg: "https://images.pexels.com/photos/3389445/pexels-photo-3389445.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            }
+        ];
+
+        const grid = document.getElementById("soundGrid");
+
+        sounds.forEach(({ name, sound, bg }) => {
+            const div = document.createElement("div");
+            div.className = "sound-card";
+            div.style.backgroundImage = `url('${bg}')`;
+            div.dataset.sound = sound;
+
+            div.innerHTML = `
+            <div class="card-content flex flex-col gap-2">
+
+                <div class="flex items-center justify-between">
+    <div class="flex items-center gap-2">
+
+        <div class="w-10 h-10 flex items-center justify-center rounded-full bg-yellow-400 text-white">
+        <i class="fa-solid fa-fire"></i>
+      </div>
+      <p class="font-semibold text-white">${name}</p>
+    </div>
+
+    <button class="w-10 h-10 flex items-center justify-center rounded-full border text-white play-pause text-xl">
+        <i class="fa-solid fa-play"></i>
+    </button>
+  </div>
+
+  <div class="flex items-center gap-4">
+  <div class="w-6 h-6 flex items-center justify-center text-white text-sm">
+    <i class="fa-solid fa-volume-high"></i>
+  </div>
+  <input type="range" min="0" max="100" value="50" class="volume-slider w-2/4 h-1.5">
+</div>
+
+
+
+  <div class="progress-container w-full">
+    <div class="progress-bar"></div>
+  </div>
+</div>
+
+
+      `;
+
+            grid.appendChild(div);
+        });
+
+        let currentAudio = null;
+        let currentBar = null;
+
+        document.querySelectorAll('.sound-card').forEach(card => {
+            const audio = new Audio(card.dataset.sound);
+            const playBtn = card.querySelector('.play-pause');
+            const volumeSlider = card.querySelector('.volume-slider');
+            const progressBar = card.querySelector('.progress-bar');
+
+            playBtn.addEventListener('click', e => {
+                e.stopPropagation();
+
+                if (currentAudio && currentAudio !== audio) {
+                    currentAudio.pause();
+                    currentBar.style.width = '0%';
+                    currentAudio.currentTime = 0;
+                    document.querySelectorAll('.play-pause i').forEach(icon => {
+                        icon.classList.remove('fa-pause');
+                        icon.classList.add('fa-play');
+                    });
+                }
+
+                if (audio.paused) {
+                    audio.play();
+                    const icon = playBtn.querySelector('i');
+                    icon.classList.remove('fa-play');
+                    icon.classList.add('fa-pause');
+                    currentAudio = audio;
+                    currentBar = progressBar;
+                } else {
+                    audio.pause();
+                    const icon = playBtn.querySelector('i');
+                    icon.classList.remove('fa-pause');
+                    icon.classList.add('fa-play');
+                }
+            });
+
+
+            volumeSlider.addEventListener('input', () => {
+                audio.volume = volumeSlider.value / 100;
+            });
+
+            audio.addEventListener('timeupdate', () => {
+                const progress = (audio.currentTime / audio.duration) * 100;
+                progressBar.style.width = `${progress}%`;
+            });
+
+            audio.addEventListener('ended', () => {
+                progressBar.style.width = '0%';
+                playBtn.textContent = "▶️";
+            });
+        });
+    </script>
+</body>
+
+</html>
