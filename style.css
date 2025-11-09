@@ -1,11 +1,13 @@
 body {
-    background-color: #1f2937;
+    background: linear-gradient(135deg, #9671d6, #3a93bd);
+    min-height: 100vh;
+    color: #fff;
     font-family: 'Inter', sans-serif;
 }
 
 .sound-card {
     position: relative;
-    height: 180px;
+    height: 150px;
     border-radius: 1rem;
     overflow: hidden;
     background-size: cover;

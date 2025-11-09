@@ -13,13 +13,34 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="bg-gray-900 min-h-screen p-6">
-    <h1 class="text-4xl md:text-2xl font-bold mt-2 mb-10 text-left text-white">🎧 Advanced Sound Board</h1>
+<body class="min-h-screen p-6">
+    <h1 class="text-4xl md:text-2xl font-bold mt-2 mb-10 text-left text-white">
+        🎧 Treehouse Sound Board
+    </h1>
 
-    <div class="min-h-screen flex justify-center">
-        <div id="soundGrid" class="grid grid-cols-2 sm:grid-cols-3 h-44 lg:grid-cols-4 gap-6 w-full max-w-6xl">
+    <div class="min-h-screen flex flex-col items-center justify-center gap-8">
+        <!-- Info Boxes Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-center w-auto">
+            <div class="border border-white rounded-lg p-4 text-center text-white bg-transparent w-50">
+                <p>High Quality Sounds</p>
+            </div>
+            <div class="border border-white rounded-lg p-4 text-center text-white bg-transparent w-50">
+                <p>Easy to Use Interface</p>
+            </div>
+            <div class="border border-white rounded-lg p-4 text-center text-white bg-transparent w-50">
+                <p>Customizable Controls</p>
+            </div>
+            <div class="border border-white rounded-lg p-4 text-center text-white bg-transparent w-50">
+                <p>Lightweight & Fast</p>
+            </div>
+        </div>
+
+        <!-- Sound Grid -->
+        <div id="soundGrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 w-full max-w-6xl mt-5">
         </div>
     </div>
+
+
 
     <script src="script.js"></script>
 </body>
