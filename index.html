@@ -154,7 +154,10 @@
         let currentBar = null;
 
         document.querySelectorAll('.sound-card').forEach(card => {
-            const audio = new Audio(card.dataset.sound);
+            const audio = new Audio();
+            audio.src = card.dataset.sound;
+            audio.preload = "none";
+
             const playBtn = card.querySelector('.play-pause');
             const volumeSlider = card.querySelector('.volume-slider');
             const progressBar = card.querySelector('.progress-bar');
